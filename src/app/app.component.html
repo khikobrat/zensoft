@@ -1,20 +1,83 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
+<div class="has-text-centered">
+
+  <h1 class="title">
     Welcome to {{ title }}!
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+  <div class="columns has-text-centered">
+
+    <div class="column">
+    </div>
+
+    <div class="column">
+
+      <div class="file has-name">
+        <label class="file-label">
+          <input class="file-input" type="file" name="resume" type="file" (change)="onUploadInput($event.target.files)">
+          <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choose input file…
+      </span>
+    </span>
+          <span class="file-name">
+          {{inputFileName}}
+    </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="column">
+
+      <div class="file has-name">
+        <label class="file-label">
+          <input class="file-input" type="file" name="resume" type="file"
+                 (change)="onUploadPattern($event.target.files)">
+          <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choose pattern file…
+      </span>
+    </span>
+          <span class="file-name">
+          {{patternFileName}}
+    </span>
+
+        </label>
+      </div>
+
+    </div>
+
+    <div class="column">
+      <button (click)="onClickCompare()" class="button is-success">Compare files</button>
+    </div>
+
+  </div>
+
+
+  <div>
+    <h3 class="subtitle">Mode 1 outputs</h3>
+    <span *ngFor="let item of matchLines; index as i;">
+    {{item}} <br>
+    </span>
+  </div>
+
+  <div>
+    <h3 class="subtitle">Mode 2 outputs</h3>
+    <span *ngFor="let item of matchLinesMode2; index as i;">
+    {{item}}<br>
+    </span>
+  </div>
+
+  <div>
+    <h3 class="subtitle">Mode 3 outputs</h3>
+    <span *ngFor="let item of matchLinesMode3; index as i;">
+     {{item}} <br>
+    </span>
+  </div>
+
+</div>
